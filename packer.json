@@ -1,0 +1,23 @@
+{
+  "variables": {
+  "gcp_account_file": "{{env `GCP_ACCOUNT_FILE`}}",
+  "gcp_project_id": "{{env `GCP_PROJECT_ID`}}",
+  "gcp_zone":         "{{env `GCP_ZONE`}}"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "{{user `gcp_account_file`}}",
+      "project_id": "{{user `gcp_project_id`}}",
+      "source_image_family": "debian-9",
+      "ssh_username": "packer",
+      "zone": "{{user `gcp_zone`}}"
+    }
+  ],  
+  "provisioners": [
+    {
+        "type": "shell",
+        "script": "./xrdp.sh"
+    }
+  ]
+}
