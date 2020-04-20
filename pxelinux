@@ -1,0 +1,5 @@
+default centos7
+prompt 0
+label centos7
+        kernel vmlinuz
+        append initrd=initrd.img inst.ks=http://172.16.0.10/centos/ks/kickstart.cfg devfs=nomount selinux=0
